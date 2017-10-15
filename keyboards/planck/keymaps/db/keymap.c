@@ -33,7 +33,8 @@ enum planck_keycodes {
 #define CA(n)   LCTL(LALT(n))
 #define CAS(n)  LCTL(LALT(LSFT(n)))
 #define CS(n)   LCTL(LSFT(n))
-#define AS(n)  LALT(LSFT(n))
+#define AS(n)   LALT(LSFT(n))
+#define S(n)    LSFT(n)
 
 #define THUMB_ROW { KC_DEL, KC_LGUI, KC_LALT, KC_LSFT, KC_LCTL, SYMB, MOVE, KC_SPC, KC_RGUI, KC_RALT, KC_RCTL, KC_ENT }
 
@@ -47,7 +48,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * |  -   |   Ö  |   J  |   K  |   Å  |   Z  |   B  |   C  |   X  |   V  |   W  |  ;   |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * | Del  | Cmd  |  Alt | Ctrl | Shift| Symb | Move | Space|  Cmd |  Alt | Ctrl | Enter|
+ * | Del  | Cmd  |  Alt | Shift| Ctrl | Symb | Move | Space|  Cmd |  Alt | Ctrl | Enter|
  * `-----------------------------------------------------------------------------------'
  */
 [_BASE] = {
@@ -56,8 +57,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   { NO_MINS, SV_OE,   KC_J,    KC_K,    SV_AA,   KC_Z,    KC_B,    KC_C,    KC_X,    KC_V,    KC_W,    NO_SCLN },
   THUMB_ROW
 },
-
-
 
 /* MOVE
  * ,-----------------------------------------------------------------------------------.
@@ -77,8 +76,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   THUMB_ROW
 },
 
-
-
 /* SYMB
  * ,-----------------------------------------------------------------------------------.
  * |  Esc |   ~  |   !  |   {  |   }  |   #  |   |  |   7  |   8  |   9  |   +  |  Del |
@@ -91,13 +88,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * `-----------------------------------------------------------------------------------'
  */
 [_SYMB] = {
-  { KC_ESC, KC_TILD, KC_EXLM ,KC_LCBR, KC_RCBR , KC_HASH, _______, KC_7,    KC_8,    KC_9, KC_MINS, _______},
-  { KC_TAB, KC_ASTR, KC_AT   , KC_LPRN, KC_RPRN, KC_AMPR, KC_EQL,  KC_4,    KC_5,    KC_6, KC_PLUS, KC_DLR },
-  { KC_CIRC,KC_GRV , KC_QUOT , KC_LBRC, KC_RBRC, KC_DLR , KC_SLASH,KC_1,    KC_2,    KC_3, KC_0   , POUND  },
-  {_______, _______, _______ , _______, _______, _______, _______, KC_0, _______, _______, _______, _______}
+  { KC_ESC, KC_TILD, KC_EXLM    ,KC_LCBR, KC_RCBR ,KC_HASH, _______, KC_7,    KC_8,    KC_9, KC_MINS, _______},
+  { KC_TAB, KC_ASTR, KC_AT      ,KC_LPRN, KC_RPRN, KC_AMPR, KC_EQL,  KC_4,    KC_5,    KC_6, KC_PLUS, KC_DLR },
+  { KC_CIRC,KC_QUOT, S(KC_QUOT) ,KC_LBRC, KC_RBRC, KC_DLR , KC_SLASH,KC_1,    KC_2,    KC_3, KC_0   , POUND  },
+  {_______, _______, _______    ,_______, _______, _______, _______, KC_0, _______, _______, _______, _______}
 },
-
-
 
 /* FUNC
  * ,-----------------------------------------------------------------------------------.
@@ -116,8 +111,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   {_______, KC_TILD, KC_GRV,  KC_PLUS, KC_EQL,  KC_PIPE, KC_BSLS, KC_LBRC, KC_RBRC, KC_LCBR, KC_RCBR, _______},
   {_______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______}
 },
-
-
 
 /* MOUSE
  * ,-----------------------------------------------------------------------------------.
