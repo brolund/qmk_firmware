@@ -65,3 +65,5 @@ secrets.tar
 id_rsa_*
 /.vs
 keyboards/planck/keymaps/db/test.txt
+#*
+.#*
