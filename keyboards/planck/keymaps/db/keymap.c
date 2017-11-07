@@ -10,7 +10,6 @@
 #include "sv.h"
 
 
-
 extern keymap_config_t keymap_config;
 
 #define _BASE 0
@@ -40,7 +39,7 @@ enum planck_keycodes {
 #define SWL     LT(_LAYERS, KC_ESC)
 //#define S(n)    LSFT(n)
 
-#define THUMB_ROW { KC_DEL, KC_LGUI, KC_LALT, KC_LSFT, KC_LCTL, KC_MS_UP, KC_MS_DOWN, KC_SPC, KC_RGUI, KC_RALT, KC_RCTL, KC_ENT }
+#define THUMB_ROW { KC_DEL, KC_LGUI, KC_LALT, ALGR_T(KC_INS), GUI_T(KC_DEL), CTL_T(KC_SPC), ALT_T(KC_SPC), SFT_T(KC_ENT), KC_RALT, KC_RCTL, KC_ENT, KC_ENT}
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
