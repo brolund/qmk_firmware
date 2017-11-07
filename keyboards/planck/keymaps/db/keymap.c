@@ -40,6 +40,11 @@ enum planck_keycodes {
 //#define S(n)    LSFT(n)
 
 #define THUMB_ROW { KC_DEL, KC_LGUI, KC_LALT, ALGR_T(KC_INS), GUI_T(KC_DEL), CTL_T(KC_SPC), ALT_T(KC_SPC), SFT_T(KC_ENT), KC_RALT, KC_RCTL, KC_ENT, KC_ENT}
+/*
+ * |------+------+------+------------+----------+-----------+----------+----------+------+------+------+------|
+ * | Del  | Cmd  |  Alt | AltGr(Ins) | Gui(Del) | Ctrl(Spc) | Alt(Spc) | Sft(Ent) |  Alt | Ctrl | Ent  | Ent  |
+ * `----------------------------------------------------------------------------------------------------------'
+ */
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
@@ -50,8 +55,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * | Tab  |   O  |   I  |   E  |   A  |   U  |   D  |   S  |   T  |   R  |   N  |  P   |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * |  -   |   Ö  |   J  |   K  |   Å  |   Z  |   B  |   C  |   X  |   V  |   W  |  ;   |
- * |------+------+------+------+------+------+------+------+------+------+------+------|
- * | Del  | Cmd  |  Alt | Shift| Ctrl | Symb | Move | Space|  Cmd |  Alt | Ctrl | Enter|
  * `-----------------------------------------------------------------------------------'
  */
 [_BASE] = {
