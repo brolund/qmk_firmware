@@ -14,7 +14,7 @@ extern keymap_config_t keymap_config;
 
 #define _BASE 0
 #define _MOVE 1
-#define _SYMB 2
+#define _NUMPAD 2
 #define _PARENS 3
 #define _MOUSE 4
 #define _LAYERS 5
@@ -69,13 +69,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * `-----------------------------------------------------------------------------------'
  */
 [_MOVE] = {
-  {SWL   ,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_PGUP, KC_HOME,    KC_UP,     KC_END,    _______, _______ },
-  {KC_TAB,  KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_PGDN, KC_LEFT,    KC_DOWN,   KC_RGHT,   _______, KC_LSFT },
-  {KC_LSFT, KC_F11,  KC_F12,  KC_F13,  KC_F14,  KC_F15,  _______, C(KC_HOME), C(KC_END), XXXXXXX,   _______, KC_LCTL },
+  {SWL   ,  _______,   _______,   _______,  _______,  _______,  KC_PGUP, KC_HOME,    KC_UP,     KC_END,    _______, _______ },
+  {KC_TAB,  _______,   _______,   _______,  _______,  _______,  KC_PGDN, KC_LEFT,    KC_DOWN,   KC_RGHT,   _______, KC_LSFT },
+  {KC_LSFT, _______,   _______,   _______,  _______,  _______,  _______, C(KC_HOME), C(KC_END), _______,   _______, KC_LCTL },
   THUMB_ROW
 },
 
-/* SYMB
+/* NUMPAD
  * ,-----------------------------------------------------------------------------------.
  * |  Esc |   ~  |   !  |   {  |   }  |   #  |   |  |   7  |   8  |   9  |   +  |  Del |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
@@ -86,7 +86,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |   ?  | Cmd  |  Alt | Ctrl | Shift| Symb | Move |   0  | Space|  Alt | Ctrl | Enter|
  * `-----------------------------------------------------------------------------------'
  */
-[_SYMB] = {
+[_NUMPAD] = {
   { SWL   , KC_TILD, KC_EXLM    ,KC_LCBR, KC_RCBR ,KC_HASH, _______, KC_7,    KC_8,    KC_9, KC_MINS, _______},
   { KC_TAB, KC_ASTR, KC_AT      ,KC_LPRN, KC_RPRN, KC_AMPR, KC_EQL,  KC_4,    KC_5,    KC_6, KC_PLUS, KC_DLR },
   { KC_CIRC,KC_QUOT, S(KC_QUOT) ,KC_LBRC, KC_RBRC, KC_DLR , KC_SLASH,KC_1,    KC_2,    KC_3, KC_0   , POUND  },
@@ -132,7 +132,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 [_LAYERS] = {
   {SWL    , _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______},
-  {_______, _______, _______, _______, _______, _______, _______, TO(_BASE),TO(_SYMB),TO(_MOVE),TO(_MOUSE), _______},
+  {_______, _______, _______, _______, _______, _______, _______, TO(_BASE),TO(_NUMPAD),TO(_MOVE),TO(_MOUSE), _______},
   {_______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______},
   {_______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______}
 }
