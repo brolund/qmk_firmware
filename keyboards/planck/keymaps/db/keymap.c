@@ -87,10 +87,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * `-----------------------------------------------------------------------------------'
  */
 [_NUMPAD] = {
-  { SWL   , KC_TILD, KC_EXLM    ,KC_LCBR, KC_RCBR ,KC_HASH, KC_ASTR,  KC_7,    KC_8,    KC_9, KC_MINS, _______},
-  { KC_TAB, KC_ASTR, KC_AT      ,KC_LPRN, KC_RPRN, KC_AMPR, KC_SLASH, KC_4,    KC_5,    KC_6, KC_PLUS, KC_DLR },
-  { KC_CIRC,KC_QUOT, S(KC_QUOT) ,KC_LBRC, KC_RBRC, KC_DLR , KC_EXLM , KC_1,    KC_2,    KC_3, KC_EQL , POUND  },
-  {_______, _______, _______    ,_______, _______, _______, _______,  KC_0,  KC_SFT, _______, _______, _______}
+  { SWL   ,  _______, _______    ,_______, _______, _______, KC_ASTR,  KC_7,    KC_8,    KC_9, KC_MINS, _______},
+  { KC_TAB,  _______, _______    ,_______, _______, _______, KC_SLASH, KC_4,    KC_5,    KC_6, KC_PLUS, KC_DLR },
+  { KC_CIRC, _______, _______    ,_______, _______, _______, KC_EXLM , KC_1,    KC_2,    KC_3, KC_EQL , POUND  },
+  {_______,  _______, _______    ,_______, _______, _______, _______,  KC_0,  KC_LSFT, _______, _______, _______}
 },
 
 /* PARENS
