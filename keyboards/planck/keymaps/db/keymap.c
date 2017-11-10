@@ -34,10 +34,10 @@ extern keymap_config_t keymap_config;
 #define SWL     LT(_LAYERS, KC_ESC)
 //#define S(n)    LSFT(n)
 
-#define THUMB_ROW { KC_DEL, RESET, KC_LALT, ALGR_T(KC_INS), GUI_T(KC_DEL), CTL_T(KC_BSPC), ALT_T(KC_ENT), SFT_T(KC_SPC), KC_RALT, KC_RCTL, KC_ENT, KC_ENT}
+#define THUMB_ROW { KC_DEL, KC_LGUI, KC_LALT, ALGR_T(KC_INS), GUI_T(KC_DEL), CTL_T(KC_BSPC), ALT_T(KC_ENT), SFT_T(KC_SPC), KC_RALT, KC_RCTL, KC_ENT, KC_ENT}
 /*
  * |------+-------+------+------------+----------+-----------+----------+----------+------+------+------+------|
- * | Del  | Reset |  Alt | AltGr(Ins) | Gui(Del) | Ctrl(Bspc)| Alt(Ent) | Sft(Spc) |  Alt | Ctrl | Ent  | Ent  |
+ * | Del  | Gui   |  Alt | AltGr(Ins) | Gui(Del) | Ctrl(Bspc)| Alt(Ent) | Sft(Spc) |  Alt | Ctrl | Ent  | Ent  |
  * `-----------------------------------------------------------------------------------------------------------'
  */
 
@@ -137,7 +137,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * | LALt | C+A  | MB-3 | MB-2 | MB-1 |      |      |  M-L |  M-D |  M-R | SW-D |      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * | Shift| C+S  |      |      |      |      |      |      |      |      |      |      |
+ * | Shift| C+S  |      |      |      |      |      |      |      |      |      |Reset |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * |      |      |      |      |      |      |      |      |      |      |      |      |
  * `-----------------------------------------------------------------------------------'
@@ -145,7 +145,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_MOUSE] = {
   {SWL    , _______, KC_ACL2, KC_ACL1, KC_ACL0, _______, _______, KC_WH_L, KC_MS_U, KC_WH_R, KC_WH_U, _______},
   {_______, _______, KC_BTN3, KC_BTN2, KC_BTN1, _______, _______, KC_MS_L, KC_MS_D, KC_MS_R, KC_WH_D, _______},
-  {_______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______},
+  {_______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, RESET  },
   {_______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______}
 },
 
