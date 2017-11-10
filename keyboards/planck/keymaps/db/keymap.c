@@ -49,13 +49,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * |Tab/ms|   O  |   I  |  E   | A    | U/par| D    |   S  |   T  |   R  |   N  |  P   |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |  -   |   Ö  |   J  |   K  |   Å  |   Z  | B    |   C  |   X  |   V  |   W  |  ;   |
+ * |  -   |   Ö  |   J  |   K  |   Å  | Z/num| B    |   C  |   X  |   V  |   W  |  ;   |
  * `-----------------------------------------------------------------------------------'
  */
 [_BASE] = {
   { SWL,               SV_AE, KC_Q, KC_DOT, LT(_MOVE,KC_COMM), LT(_SIGNS,KC_Y),  KC_F, KC_G, KC_L, KC_H,    KC_M,    KC_BSPC },
   { LT(_MOUSE,KC_TAB), KC_O,  KC_I, KC_E,   KC_A,              LT(_PARENS,KC_U), KC_D, KC_S, KC_T, KC_R,    KC_N,    KC_P },
-  { NO_MINS,           SV_OE, KC_J, KC_K,   SV_AA,             KC_Z,             KC_B, KC_C, KC_X, KC_V,    KC_W,    NO_SCLN },
+  { NO_MINS,           SV_OE, KC_J, KC_K,   SV_AA,             LT(_NUMPAD,KC_Z), KC_B, KC_C, KC_X, KC_V,    KC_W,    NO_SCLN },
   THUMB_ROW
 },
 
@@ -70,9 +70,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * `-----------------------------------------------------------------------------------'
  */
 [_MOVE] = {
-  {SWL   ,  _______,   _______,   _______,  _______,  _______,  KC_PGUP, KC_HOME,    KC_UP,     KC_END,    _______, _______ },
-  {KC_TAB,  _______,   _______,   _______,  _______,  _______,  KC_PGDN, KC_LEFT,    KC_DOWN,   KC_RGHT,   _______, KC_LSFT },
-  {KC_LSFT, _______,   _______,   _______,  _______,  _______,  _______, C(KC_HOME), C(KC_END), _______,   _______, KC_LCTL },
+  {SWL   ,  _______,   _______,   _______,  _______,  _______,  _______, KC_HOME,    KC_UP,     KC_END,  KC_PGUP, _______ },
+  {KC_TAB,  _______,   _______,   _______,  _______,  _______,  _______, KC_LEFT,    KC_DOWN,   KC_RGHT, KC_PGDN, KC_LSFT },
+  {KC_LSFT, _______,   _______,   _______,  _______,  _______,  _______, C(KC_HOME), C(KC_END), _______, _______, KC_LCTL },
   THUMB_ROW
 },
 
