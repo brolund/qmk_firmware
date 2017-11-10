@@ -34,10 +34,10 @@ extern keymap_config_t keymap_config;
 #define SWL     LT(_LAYERS, KC_ESC)
 //#define S(n)    LSFT(n)
 
-#define THUMB_ROW { KC_DEL, KC_LGUI, KC_LALT, ALGR_T(KC_INS), GUI_T(KC_DEL), CTL_T(KC_SPC), ALT_T(KC_SPC), SFT_T(KC_ENT), KC_RALT, KC_RCTL, KC_ENT, KC_ENT}
+#define THUMB_ROW { KC_DEL, KC_LGUI, KC_LALT, ALGR_T(KC_INS), GUI_T(KC_DEL), CTL_T(KC_BSPC), ALT_T(KC_ENT), SFT_T(KC_SPC), KC_RALT, KC_RCTL, KC_ENT, KC_ENT}
 /*
  * |------+------+------+------------+----------+-----------+----------+----------+------+------+------+------|
- * | Del  | Cmd  |  Alt | AltGr(Ins) | Gui(Del) | Ctrl(Spc) | Alt(Spc) | Sft(Ent) |  Alt | Ctrl | Ent  | Ent  |
+ * | Del  | Cmd  |  Alt | AltGr(Ins) | Gui(Del) | Ctrl(Bspc)| Alt(Ent) | Sft(Spc) |  Alt | Ctrl | Ent  | Ent  |
  * `----------------------------------------------------------------------------------------------------------'
  */
 
@@ -45,17 +45,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /* BASE
  * ,-----------------------------------------------------------------------------------.
- * | Esc  |   Ä  |   Q  |   .  |   ,  |   Y  |   F  |   G  |   L  |   H  |   M  | Bksp |
+ * | Esc  |   Ä  |   Q  |   .  | ,/mv |Y/sign| F    |   G  |   L  |   H  |   M  | Bksp |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * | Tab  |   O  |   I  |   E  |   A  |   U  |   D  |   S  |   T  |   R  |   N  |  P   |
+ * |Tab/ms|   O  |   I  |  E   | A    | U/par| D    |   S  |   T  |   R  |   N  |  P   |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |  -   |   Ö  |   J  |   K  |   Å  |   Z  |   B  |   C  |   X  |   V  |   W  |  ;   |
+ * |  -   |   Ö  |   J  |   K  |   Å  |   Z  | B    |   C  |   X  |   V  |   W  |  ;   |
  * `-----------------------------------------------------------------------------------'
  */
 [_BASE] = {
-  { SWL,     SV_AE,   KC_Q,   KC_DOT,  KC_COMM,  KC_Y,    KC_F,    KC_G,    KC_L,    KC_H,    KC_M,    KC_BSPC },
-  { KC_TAB,  KC_O,    KC_I,    KC_E,    KC_A,    KC_U,    KC_D,    KC_S,    KC_T,    KC_R,    KC_N,    KC_P },
-  { NO_MINS, SV_OE,   KC_J,    KC_K,    SV_AA,   KC_Z,    KC_B,    KC_C,    KC_X,    KC_V,    KC_W,    NO_SCLN },
+  { SWL,               SV_AE, KC_Q, KC_DOT, LT(_MOVE,KC_COMM), LT(_SIGNS,KC_Y),  KC_F, KC_G, KC_L, KC_H,    KC_M,    KC_BSPC },
+  { LT(_MOUSE,KC_TAB), KC_O,  KC_I, KC_E,   KC_A,              LT(_PARENS,KC_U), KC_D, KC_S, KC_T, KC_R,    KC_N,    KC_P },
+  { NO_MINS,           SV_OE, KC_J, KC_K,   SV_AA,             KC_Z,             KC_B, KC_C, KC_X, KC_V,    KC_W,    NO_SCLN },
   THUMB_ROW
 },
 
@@ -143,18 +143,18 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * `-----------------------------------------------------------------------------------'
  */
 [_MOUSE] = {
-  {SWL    , XXXXXXX, KC_ACL2, KC_ACL1, KC_ACL0, XXXXXXX, XXXXXXX, KC_WH_L, KC_MS_U, KC_WH_R, KC_WH_U, XXXXXXX},
-  {XXXXXXX, XXXXXXX, KC_BTN3, KC_BTN2, KC_BTN1, XXXXXXX, KC_1, KC_MS_L, KC_MS_D, KC_MS_R, KC_WH_D, XXXXXXX},
-  {_______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______},
+  {SWL    , _______, KC_ACL2, KC_ACL1, KC_ACL0, _______, _______, KC_WH_L, KC_MS_U, KC_WH_R, KC_WH_U, _______},
+  {_______, _______, KC_BTN3, KC_BTN2, KC_BTN1, _______, _______, KC_MS_L, KC_MS_D, KC_MS_R, KC_WH_D, _______},
+  {_______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______},
   {_______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______}
 },
 
 [_LAYERS] = {
-  {SWL    , _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______},
-  {_______, _______, _______, _______, _______, _______, _______, TO(_BASE),TO(_NUMPAD),TO(_MOVE),TO(_MOUSE), _______},
-  {_______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______},
-  {_______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______}
-}
+  {SWL    , TO(_BASE), _______, _______, _______,     _______, _______, _______, _______, _______, _______, _______},
+  {_______, _______,   _______, _______, TO(_MOUSE),  _______, _______, _______, _______, _______, _______, _______},
+  {_______, _______,   _______, _______, _______,     _______, _______, _______, _______, _______, _______, _______},
+  {_______, _______,   _______, _______, _______,     _______, _______, _______, _______, _______, _______, _______}
+} 
 
 };
 
