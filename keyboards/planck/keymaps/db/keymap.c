@@ -34,11 +34,11 @@ extern keymap_config_t keymap_config;
 #define SWL     LT(_LAYERS, KC_ESC)
 //#define S(n)    LSFT(n)
 
-#define THUMB_ROW { KC_DEL, KC_LGUI, KC_LALT, ALGR_T(KC_INS), GUI_T(KC_DEL), CTL_T(KC_BSPC), ALT_T(KC_ENT), SFT_T(KC_SPC), KC_RALT, KC_RCTL, KC_ENT, KC_ENT}
+#define THUMB_ROW { KC_DEL, RESET, KC_LALT, ALGR_T(KC_INS), GUI_T(KC_DEL), CTL_T(KC_BSPC), ALT_T(KC_ENT), SFT_T(KC_SPC), KC_RALT, KC_RCTL, KC_ENT, KC_ENT}
 /*
- * |------+------+------+------------+----------+-----------+----------+----------+------+------+------+------|
- * | Del  | Cmd  |  Alt | AltGr(Ins) | Gui(Del) | Ctrl(Bspc)| Alt(Ent) | Sft(Spc) |  Alt | Ctrl | Ent  | Ent  |
- * `----------------------------------------------------------------------------------------------------------'
+ * |------+-------+------+------------+----------+-----------+----------+----------+------+------+------+------|
+ * | Del  | Reset |  Alt | AltGr(Ins) | Gui(Del) | Ctrl(Bspc)| Alt(Ent) | Sft(Spc) |  Alt | Ctrl | Ent  | Ent  |
+ * `-----------------------------------------------------------------------------------------------------------'
  */
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
