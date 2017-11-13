@@ -50,9 +50,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |  /   |   Ö  |   J  | K/num| Å/par|  Z   | B    |   C  |   X  |   V  |   W  |  -_  |
  * `-----------------------------------------------------------------------------------' */
 [_BASE] = {
-  { KC_ESC,            NO_AE, KC_Q, LT(_SIGNS,KC_DOT), LT(_MOVE,KC_COMM), KC_Y, KC_F, KC_G, KC_L, KC_H,    KC_M,    KC_BSPC },
-  { LT(_MOUSE,KC_TAB), KC_O,  KC_I, KC_E,              KC_A,              KC_U, KC_D, KC_S, KC_T, KC_R,    KC_N,    KC_P },
-  { LSFT(KC_7),        NO_OSLH, KC_J, LT(_NUMPAD,KC_K),  LT(_PARENS,NO_AA), KC_Z, KC_B, KC_C, KC_X, KC_V,    KC_W,    KC_MINS },
+  { KC_ESC,            NO_AE,   KC_Q, LT(_SIGNS,KC_DOT), LT(_MOVE,KC_COMM), KC_Y, KC_F, KC_G, KC_L, KC_H, KC_M, KC_BSPC },
+  { LT(_MOUSE,KC_TAB), KC_O,    KC_I, KC_E,              KC_A,              KC_U, KC_D, KC_S, KC_T, KC_R, KC_N, KC_P },
+  { LSFT(KC_7),        NO_OSLH, KC_J, LT(_NUMPAD,KC_K),  LT(_PARENS,NO_AA), KC_Z, KC_B, KC_C, KC_X, KC_V, KC_W, KC_MINS },
   THUMB_ROW
 },
 
