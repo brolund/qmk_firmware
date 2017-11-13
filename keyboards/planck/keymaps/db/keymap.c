@@ -6,7 +6,7 @@
   #include "audio.h"
 #endif
 #include "eeconfig.h"
-#include "keymap_extras/keymap_nordic.h"
+#include "keymap_extras/keymap_swedish.h"
 #include "sv.h"
 
 
@@ -52,9 +52,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * `-----------------------------------------------------------------------------------'
  */
 [_BASE] = {
-  { KC_ESC,            SV_AE, KC_Q, LT(_SIGNS,KC_DOT), LT(_MOVE,KC_COMM), KC_Y, KC_F, KC_G, KC_L, KC_H,    KC_M,    KC_BSPC },
+  { KC_ESC,            NO_AE, KC_Q, LT(_SIGNS,KC_DOT), LT(_MOVE,KC_COMM), KC_Y, KC_F, KC_G, KC_L, KC_H,    KC_M,    KC_BSPC },
   { LT(_MOUSE,KC_TAB), KC_O,  KC_I, KC_E,              KC_A,              KC_U, KC_D, KC_S, KC_T, KC_R,    KC_N,    KC_P },
-  { LSFT(KC_7),        SV_OE, KC_J, LT(_NUMPAD,KC_K),  LT(_PARENS,SV_AA), KC_Z, KC_B, KC_C, KC_X, KC_V,    KC_W,    KC_MINS },
+  { LSFT(KC_7),        NO_OSLH, KC_J, LT(_NUMPAD,KC_K),  LT(_PARENS,NO_AA), KC_Z, KC_B, KC_C, KC_X, KC_V,    KC_W,    KC_MINS },
   THUMB_ROW
 },
 
@@ -87,14 +87,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [_NUMPAD] = {
   { _______, _______, _______ ,_______, _______, _______, KC_ASTR,  KC_7,    KC_8,    KC_9, KC_MINS, _______},
-  { _______, _______, _______ ,_______, _______, _______, KC_SLASH, KC_4,    KC_5,    KC_6, KC_PLUS, KC_DLR },
-  { _______, _______, _______ ,_______, _______, _______, KC_EXLM , KC_1,    KC_2,    KC_3, KC_EQL , POUND  },
+  { _______, _______, _______ ,_______, _______, _______, KC_SLASH, KC_4,    KC_5,    KC_6, KC_PLUS, NO_DLR },
+  { _______, _______, _______ ,_______, _______, _______, KC_EXLM , KC_1,    KC_2,    KC_3, KC_EQL , NO_PND  },
   { _______, _______, _______ ,_______, _______, _______, _______,  KC_0,  KC_LSFT, _______, _______, _______}
 },
 
 /* PARENS
  * ,-----------------------------------------------------------------------------------.
- * |      |      |      |      |      |      |      |   "  |   '  |   `  |      |      |
+ * |      |      |      |      |      |      |      |   "  |   '  |   `´ |      |      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * |      |      |      |      |      |      |   |  |   (  |   )  |   {  |   }  |  /   |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
@@ -104,10 +104,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * `-----------------------------------------------------------------------------------'
  */
 [_PARENS] = {
-  {_______, _______, _______, _______, _______, _______, _______,       NO_QUO2,    SV_SQUO, KC_GRV, _______,       _______},
-  {_______, _______, _______, _______, _______, _______, KC_PIPE,       NO_LPRN,    NO_RPRN, NO_LCBR, NO_RCBR, KC_SLASH},
-  {_______, _______, _______, _______, _______, _______, LSFT(KC_MINS), NO_LBRC,    NO_RBRC, NO_LESS, NO_GRTR,  KC_BSLS},
-  {_______, _______, _______, _______, _______, _______, _______,       _______,    _______, _______,       _______,       _______}
+  {_______, _______, _______, _______, _______, _______, _______, NO_QUO2, NO_APOS, NO_ACUT, _______, _______},
+  {_______, _______, _______, _______, _______, _______, NO_PIPE, NO_LPRN, NO_RPRN, NO_LCBR, NO_RCBR, NO_SLSH},
+  {_______, _______, _______, _______, _______, _______, NO_UNDS, NO_LBRC, NO_RBRC, NO_LESS, NO_GRTR, NO_BSLS},
+  {_______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______}
 },
 
 /* SIGNS
