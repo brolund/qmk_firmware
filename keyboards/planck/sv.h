@@ -17,8 +17,8 @@
 #define SV_RBRC ALGR(KC_0)
 #define SV_LSBR ALGR(KC_8)
 #define SV_RSBR ALGR(KC_9)
-#define SV_LABR KC_BSLS
+#define SV_LABR KC_RO
 #define SV_RABR LSFT(KC_BSLS)
-
-
+#define SV_SQUO KC_SLASH
+#define SV_ASTE LSFT(KC_SLASH)
 #endif
