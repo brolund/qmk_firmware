@@ -10,5 +10,6 @@
 
 #define SV_PIPE ALGR(NO_LESS)
 #define SV_BSLS ALGR(NO_PLUS)
+#define NO_EXLM LSFT(KC_1)
 
 #endif
