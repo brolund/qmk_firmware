@@ -33,12 +33,11 @@ extern keymap_config_t keymap_config;
 #define CS(n)   LCTL(LSFT(n))
 #define AS(n)   LALT(LSFT(n))
 
-#define THUMB_ROW { KC_DEL, KC_LGUI, KC_LALT, ALGR_T(KC_INS), GUI_T(KC_DEL), CTL_T(KC_BSPC), ALT_T(KC_ENT), SFT_T(KC_SPC), KC_RALT, KC_RCTL, KC_ENT, KC_ENT}
+#define THUMB_ROW { KC_DEL, KC_LGUI, KC_LALT, ALGR_T(KC_INS), CTL_T(KC_DEL), GUI_T(KC_BSPC), ALT_T(KC_ENT), SFT_T(KC_SPC), KC_RALT, KC_RCTL, KC_ENT, KC_ENT}
 /*
  * |------+-------+------+------------+----------+-----------+----------+----------+------+------+------+------|
- * | Del  | Gui   |  Alt | AltGr(Ins) | Gui(Del) | Ctrl(Bspc)| Alt(Ent) | Sft(Spc) |  Alt | Ctrl | Ent  | Ent  |
- * `-----------------------------------------------------------------------------------------------------------'
- */
+ * | Del  | Gui   |  Alt | Altgr(Ins) | Ctrl(Del)| Gui(Bspc) | Alt(Ent) | Sft(Spc) |  Alt | Ctrl | Ent  | Ent  |
+ * `-----------------------------------------------------------------------------------------------------------'*/
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
@@ -49,8 +48,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |Tab/ms|   O  |   I  |  E   | A    |  U   | D    |   S  |   T  |   R  |   N  |  P   |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * |  /   |   Ö  |   J  | K/num| Å/par|  Z   | B    |   C  |   X  |   V  |   W  |  -_  |
- * `-----------------------------------------------------------------------------------'
- */
+ * `-----------------------------------------------------------------------------------' */
 [_BASE] = {
   { KC_ESC,            NO_AE, KC_Q, LT(_SIGNS,KC_DOT), LT(_MOVE,KC_COMM), KC_Y, KC_F, KC_G, KC_L, KC_H,    KC_M,    KC_BSPC },
   { LT(_MOUSE,KC_TAB), KC_O,  KC_I, KC_E,              KC_A,              KC_U, KC_D, KC_S, KC_T, KC_R,    KC_N,    KC_P },
@@ -88,7 +86,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_NUMPAD] = {
   { _______, _______, _______ ,_______, _______, _______, NO_ASTR,  KC_7, KC_8,    KC_9,    NO_MINS, _______},
   { _______, _______, _______ ,_______, _______, _______, NO_SLSH,  KC_4, KC_5,    KC_6,    NO_PLUS, NO_DLR },
-  { _______, _______, _______ ,_______, _______, _______, NO_EXLM , KC_1, KC_2,    KC_3,    NO_EQL , NO_PND  },
+  { _______, _______, _______ ,_______, _______, _______, KC_EXLM , KC_1, KC_2,    KC_3,    NO_EQL , NO_PND  },
   { _______, _______, _______ ,_______, _______, _______, _______,  KC_0, KC_LSFT, _______, _______, _______}
 },
 
@@ -121,9 +119,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * `-----------------------------------------------------------------------------------'
  */
 [_SIGNS] = {
-  {_______, _______, _______, _______, _______, _______, KC_EQL,  KC_PLUS,KC_MINS, KC_ASTR, KC_PERC, _______},
-  {_______, _______, _______, _______, _______, _______, KC_TILD, KC_DOT, KC_EXLM, KC_QUES, KC_AMPR, _______},
-  {_______, _______, _______, _______, _______, _______, KC_CIRC, KC_AT,  KC_HASH, KC_DLR,  POUND,   EURO},
+  {_______, _______, _______, _______, _______, _______, NO_EQL,  NO_PLUS, NO_MINS, NO_ASTR, KC_PERC, _______},
+  {_______, _______, _______, _______, _______, _______, NO_TILD, KC_DOT,  KC_EXLM, NO_QUES, NO_AMPR, _______},
+  {_______, _______, _______, _______, _______, _______, NO_CIRC, NO_AT,   NO_HASH, NO_DLR,  NO_PND,  NO_EURO},
   {_______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______}
 },
 
