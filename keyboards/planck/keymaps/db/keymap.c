@@ -52,12 +52,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * |Tab/ms|   O  |   I  |   E  |   A  |  U   | D    |   S  |   T  |   R  |   N  |  P   |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |  /   |   Ö  |   J  |K/sign| Å/par|  Z   | B    |   C  |   X  |   V  |   W  |  -_  |
+ * |  /   |Ö/i3mv|J/i3ws|K/sign| Å/par|  Z   | B    |   C  |   X  |   V  |   W  |  -_  |
  * `-----------------------------------------------------------------------------------' */
 [_BASE] = {
-  { KC_ESC,            LT(_MOVE,NO_AE), LT(_NUMPAD,KC_Q), LT(_FUNC, KC_DOT), LT(_CONTROLS, KC_COMM), KC_Y, KC_F, KC_G, KC_L, KC_H, KC_M, KC_BSPC },
-  { LT(_MOUSE,KC_TAB), KC_O,            KC_I,             KC_E,              KC_A,                   KC_U, KC_D, KC_S, KC_T, KC_R, KC_N, KC_P    },
-  { LSFT(KC_7),        NO_OSLH,         KC_J,             LT(_SIGNS,KC_K),   LT(_PARENS,NO_AA),      KC_Z, KC_B, KC_C, KC_X, KC_V, KC_W, NO_MINS },
+  { KC_ESC,            LT(_MOVE,NO_AE),   LT(_NUMPAD,KC_Q), LT(_FUNC, KC_DOT), LT(_CONTROLS, KC_COMM), KC_Y, KC_F, KC_G, KC_L, KC_H, KC_M, KC_BSPC },
+  { LT(_MOUSE,KC_TAB), KC_O,              KC_I,             KC_E,              KC_A,                   KC_U, KC_D, KC_S, KC_T, KC_R, KC_N, KC_P    },
+  { LSFT(KC_7),        LT(_I3MV,NO_OSLH), LT(_I3WS,KC_J),   LT(_SIGNS,KC_K),   LT(_PARENS,NO_AA),      KC_Z, KC_B, KC_C, KC_X, KC_V, KC_W, NO_MINS },
   THUMB_ROW
 },
 
@@ -197,7 +197,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * `-----------------------------------------------------------------------------------'
  */
 [_I3WS] = {
-  {_______, _______, _______, _______, _______, _______, _______, I3_WS7,  KC_F8,   I3_WS9,  I3_WS0, _______},
+  {_______, _______, _______, _______, _______, _______, _______, I3_WS7,  I3_WS8,  I3_WS9,  I3_WS0, _______},
   {_______, _______, _______, _______, _______, _______, _______, I3_WS4,  I3_WS5,  I3_WS6,  I3_LNCH, _______},
   {_______, _______, _______, _______, _______, _______, _______, I3_WS1,  I3_WS2,  I3_WS3,  I3_TERM, _______},
   {_______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______}
