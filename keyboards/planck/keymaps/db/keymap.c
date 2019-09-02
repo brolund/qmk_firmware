@@ -32,7 +32,6 @@ extern keymap_config_t keymap_config;
 // Fillers to make layering more clear
 #define _______ KC_TRNS
 #define XXXXXXX KC_NO
-#define C(n)    LCTL(n)
 #define CA(n)   LCTL(LALT(n))
 #define CAS(n)  LCTL(LALT(LSFT(n)))
 #define CS(n)   LCTL(LSFT(n))
@@ -59,7 +58,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_BASE] = {
   { KC_ESC,            NO_AE,             LT(_NUMPAD,KC_Q),  LT(_I3WS, KC_COMM), LT(_I3MV, KC_DOT), KC_Y, KC_F, KC_G, KC_L, KC_H, KC_M, KC_BSPC },
   { LT(_MOUSE,KC_TAB), LT(_MOVE,KC_O),    KC_I,              KC_E,              KC_A,               KC_U, KC_D, KC_S, KC_T, KC_R, KC_N, KC_P    },
-  { LSFT(KC_7),        LT(_FUNC,NO_OSLH), LT(_CONTROLS,KC_J),LT(_SIGNS,KC_K),   LT(_PARENS,NO_AA),  KC_Z, KC_B, KC_C, KC_X, KC_V, KC_W, NO_MINS },
+  { LSFT(KC_7),        LT(_FUNC,NO_OSLH), LT(_CONTROLS,KC_J),LT(_SIGNS,KC_K),   LT(_PARENS,SE_AA),  KC_Z, KC_B, KC_C, KC_X, KC_V, KC_W, NO_MINS },
   THUMB_ROW
 },
 
@@ -75,7 +74,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_MOVE] = {
   { _______, _______,   _______,   _______,  _______,  _______,  _______, KC_HOME,    KC_UP,     KC_END,  KC_PGUP, _______ },
   { _______, _______,   _______,   _______,  _______,  _______,  _______, KC_LEFT,    KC_DOWN,   KC_RGHT, KC_PGDN, KC_LSFT },
-  { _______, _______,   _______,   _______,  _______,  _______,  _______, C(KC_HOME), C(KC_END), _______, _______, KC_LCTL },
+  { _______, _______,   _______,   _______,  _______,  _______,  _______, LCTL(KC_HOME), LCTL(KC_END), _______, _______, KC_LCTL },
   THUMB_ROW
 },
 
@@ -91,7 +90,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * `-----------------------------------------------------------------------------------'
  */
 [_NUMPAD] = {
-  { _______, _______, _______ ,_______, _______, _______, NO_ASTR,  KC_7, KC_8,    KC_9,    NO_MINS, _______},
+  { _______, _______, _______ ,_______, _______, _______, SE_ASTR,  KC_7, KC_8,    KC_9,    NO_MINS, _______},
   { _______, _______, _______ ,_______, _______, _______, NO_SLSH,  KC_4, KC_5,    KC_6,    NO_PLUS, NO_DLR },
   { _______, _______, _______ ,_______, _______, _______, KC_PERC , KC_1, KC_2,    KC_3,    NO_EQL , NO_PND  },
   { _______, _______, _______ ,_______, _______, _______, _______,  KC_0, KC_LSFT, _______, _______, _______}
@@ -126,7 +125,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * `-----------------------------------------------------------------------------------'
  */
 [_SIGNS] = {
-  {_______, _______, _______, _______, _______, _______, NO_EQL,  NO_PLUS, NO_MINS, NO_ASTR, KC_PERC, _______},
+  {_______, _______, _______, _______, _______, _______, NO_EQL,  NO_PLUS, NO_MINS, SE_ASTR, KC_PERC, _______},
   {_______, _______, _______, _______, _______, _______, NO_TILD, KC_DOT,  KC_EXLM, NO_QUES, NO_AMPR, _______},
   {_______, _______, _______, _______, _______, _______, NO_CIRC, NO_AT,   NO_HASH, NO_DLR,  NO_PND,  NO_EURO},
   {_______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______}
