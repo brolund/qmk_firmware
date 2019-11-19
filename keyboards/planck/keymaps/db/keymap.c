@@ -39,7 +39,7 @@ extern keymap_config_t keymap_config;
 #define SLACKUP AS(KC_UP)
 #define SLACKDN AS(KC_DOWN)
 
-#define THUMB_ROW { KC_DEL, KC_LGUI, KC_LALT, ALGR_T(KC_INS), CTL_T(KC_BSPC), GUI_T(KC_DEL), ALT_T(KC_ENT), SFT_T(KC_SPC), KC_RALT, KC_RCTL, KC_ENT, KC_ENT}
+#define THUMB_ROW KC_DEL, KC_LGUI, KC_LALT, ALGR_T(KC_INS), CTL_T(KC_BSPC), GUI_T(KC_DEL), ALT_T(KC_ENT), SFT_T(KC_SPC), KC_RALT, KC_RCTL, KC_ENT, KC_ENT
 /*
  * |------+-------+------+------------+----------+-----------+----------+----------+------+------+------+------|
  * | Del  | Gui   |  Alt | Altgr(Ins) |Ctrl(Bspc)| Gui(Del)  | Alt(Ent) | Sft(Spc) |  Alt | Ctrl | Ent  | Ent  |
@@ -59,7 +59,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   { KC_ESC,            NO_AE,             LT(_NUMPAD,KC_Q),  LT(_I3WS, KC_COMM), LT(_I3MV, KC_DOT), KC_Y, KC_F, KC_G, KC_L, KC_H, KC_M, KC_BSPC },
   { LT(_MOUSE,KC_TAB), LT(_MOVE,KC_O),    KC_I,              KC_E,              KC_A,               KC_U, KC_D, KC_S, KC_T, KC_R, KC_N, KC_P    },
   { LSFT(KC_7),        LT(_FUNC,NO_OSLH), LT(_CONTROLS,KC_J),LT(_SIGNS,KC_K),   LT(_PARENS,SE_AA),  KC_Z, KC_B, KC_C, KC_X, KC_V, KC_W, NO_MINS },
-  THUMB_ROW
+  { THUMB_ROW }
 },
 
 /* MOVE
