@@ -1,16 +1,20 @@
-# callum’s planck layout
+# db’s planck layout
 
 This is a layout for the grid planck, built with a few ideals in mind:
 
-- Consistent and minimal response times should be maintained. Keys that react differently depending on whether they are tapped or held, keys that react differently if they are double tapped, etc. should be avoided – they inevitably send their keycode later than a normal key – interrupting the immediate feedback from the screen. Therefore we restrict ourselves to chording as our only means of getting more than one symbol out of a single physical key.
-- The hands should never need to leave the home position. The usual culprit for this is the arrow cluster, so the arrow cluster should be as close to home as possible.
-- There should be two of every modifier (one on each side), otherwise certain long key combinations become hard to make.
+- Compromise between english and swedish. The most common digraphs in both languages are "rollable".
+- Left hand selects layers.
+- Numpad is available for right hand as a layer.
+- Function buttons numbers are same as numpad numbers, extending F10-F12 to little finger collumn.  
+- Arrows and pg up/down, home, end etc are available for right hand as a layer.
+- Mouse is controlled like the arrows.
 
+h
 We have five layers.
 A `BASE` layer, in dvorak;
 a `MOVE` layer, with an arrow cluster, other movement keys, and hotkeys;
 a `SYMB` layer, with numbers and symbols;
-a `FUNC` layer, with a numpad;
+a `FUNC` layer, with am numpad;
 a `MOUSE` layer, with mouse emulation. The `MOUSE` layer is activated by holding the Move and Symb keys simultaniously.
 
 ```
