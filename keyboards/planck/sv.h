@@ -1,7 +1,6 @@
 #ifndef SV_H
 #define SV_H
 
-#include "planck.h"
 #include "keymap_extras/keymap_nordic.h"
 
 #define SV_OE KC_SCLN
