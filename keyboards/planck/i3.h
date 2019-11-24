@@ -1,8 +1,6 @@
 #ifndef I3_H
 #define I3_H
 
-#include "planck.h"
-
 #define I3_WS1 LGUI(KC_1)
 #define I3_WS2 LGUI(KC_2)
 #define I3_WS3 LGUI(KC_3)
