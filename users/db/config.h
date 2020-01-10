@@ -42,6 +42,11 @@
 #define EURO ALGR(KC_E)
 #define H(X) LALT(LCTL(X))
 
+#ifdef BACKLIGHT_LEVELS
+#undef BACKLIGHT_LEVELS
+#endif
+#define BACKLIGHT_LEVELS 10
+
 // Fillers to make layering more clear
 #define _______ KC_TRNS
 #define XXXXXXX KC_NO
@@ -136,7 +141,7 @@
  */
 
 #define CONT_1 {_______, _______, _______, _______, _______, _______, _______, KC_VOLU, SLACKUP, _______, _______, _______}
-#define CONT_2 {_______, _______, _______, _______, _______, _______, _______, KC_VOLD, SLACKDN, KC_APP , _______, _______}
+#define CONT_2 {_______, _______, _______, _______, _______, _______, _______, KC_VOLD, SLACKDN, KC_APP , BL_STEP, _______}
 #define CONT_3 {_______, _______, _______, _______, _______, _______, _______, KC_MUTE, KC_PSCR, _______, _______, _______}
 /* CONTROLS
  * ,-----------------------------------------------------------------------------------.
