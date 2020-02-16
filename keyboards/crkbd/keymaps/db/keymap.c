@@ -1,4 +1,9 @@
 #include QMK_KEYBOARD_H
+#include "eeconfig.h"
+#include "keymap_extras/keymap_swedish.h"
+#include "sv.h"
+#include "i3.h"
+
 
 extern keymap_config_t keymap_config;
 
@@ -8,15 +13,60 @@ extern rgblight_config_t rgblight_config;
 #endif
 
 extern uint8_t is_master;
-
-// Each layer gets a name for readability, which is then used in the keymap matrix below.
-// The underscores don't mean anything - you can have a layer called STUFF or any other name.
-// Layer names don't all need to be of the same length, obviously, and you can also skip them
-// entirely and just use numbers.
 #define _QWERTY 0
 #define _LOWER 1
 #define _RAISE 2
 #define _ADJUST 3
+
+const uint16_t base[4][12] = {
+  [0]=BASE_1,
+  [1]=BASE_2,
+  [2]=BASE_3,
+  [3]=THUMB_ROW
+};
+const uint16_t move[4][12] = {
+  [0]=MOVE_1,
+  [1]=MOVE_2,
+  [2]=MOVE_3,
+  [3]=THUMB_ROW
+};
+const uint16_t num[4][12] = {
+  [0]=NUM_1,
+  [1]=NUM_2,
+  [2]=NUM_3,
+  [3]=NUM_4
+};
+const uint16_t par[4][12] = {
+  [0]=PAR_1,
+  [1]=PAR_2,
+  [2]=PAR_3,
+  [3]=THUMB_ROW
+};
+const uint16_t sign[4][12] = {
+  [0]=SIGN_1,
+  [1]=SIGN_2,
+  [2]=SIGN_3,
+  [3]=THUMB_ROW
+};
+const uint16_t mouse[4][12] = {
+  [0]=MOUS_1,
+  [1]=MOUS_2,
+  [2]=MOUS_3,
+  [3]=THUMB_ROW
+};
+const uint16_t cont[4][12] = {
+  [0]=CONT_1,
+  [1]=CONT_2,
+  [2]=CONT_3,
+  [3]=THUMB_ROW
+};
+const uint16_t func[4][12] = {
+  [0]=FUNC_1,
+  [1]=FUNC_2,
+  [2]=FUNC_3,
+  [3]=THUMB_ROW
+};
+
 
 enum custom_keycodes {
   QWERTY = SAFE_RANGE,
@@ -30,20 +80,31 @@ enum custom_keycodes {
 enum macro_keycodes {
   KC_SAMPLEMACRO,
 };
+/*
+{ \
+    { L00, L01, L02, L03, L04, L05 }, \
+    { L10, L11, L12, L13, L14, L15 }, \
+    { L20, L21, L22, L23, L24, L25 }, \
+    { KC_NO, KC_NO, KC_NO, L30, L31, L32 }, \
+    { R05, R04, R03, R02, R01, R00 }, \
+    { R15, R14, R13, R12, R11, R10 }, \
+    { R25, R24, R23, R22, R21, R20 }, \
+    { KC_NO, KC_NO, KC_NO, R32, R31, R30 } \
+}
+*/
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-  [_QWERTY] = LAYOUT( \
-  //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-       KC_TAB,    KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                         KC_Y,    KC_U,    KC_I,    KC_O,   KC_P,  KC_BSPC,\
-  //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      KC_LCTL,    KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                         KC_H,    KC_J,    KC_K,    KC_L, KC_SCLN, KC_QUOT,\
-  //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      KC_LSFT,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                         KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH, KC_RSFT,\
-  //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          KC_LGUI,   LOWER,  KC_SPC,     KC_ENT,  RAISE,  KC_RALT \
-                                      //`--------------------------'  `--------------------------'
+  [_QWERTY] = {
+    { base[0][0], base[0][1], base[0][2],   base[0][3], base[0][4], base[0][5]}, 
+    { base[1][0], base[1][1], base[1][2],   base[1][3], base[1][4], base[1][5]}, 
+    { base[2][0], base[2][1], base[2][2],   base[2][3], base[2][4], base[2][5]}, 
+    { KC_NO,      KC_NO,      KC_NO,        base[3][3], base[3][4], base[3][5]}, 
+    { base[0][11], base[0][10], base[0][9], base[0][8], base[0][7], base[0][6]}, 
+    { base[1][11], base[1][10], base[1][9], base[1][8], base[1][7], base[1][6]}, 
+    { base[2][11], base[2][10], base[2][9], base[2][8], base[2][7], base[2][6]}, 
+    { KC_NO,      KC_NO,      KC_NO,        base[3][8], base[3][7], base[3][6]}, 
 
-  ),
+  },
 
   [_LOWER] = LAYOUT( \
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
