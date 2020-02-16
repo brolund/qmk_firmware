@@ -94,7 +94,7 @@ enum macro_keycodes {
 */
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-  [_QWERTY] = {
+  [_BASE] = {
     { base[0][0], base[0][1], base[0][2],   base[0][3], base[0][4], base[0][5]}, 
     { base[1][0], base[1][1], base[1][2],   base[1][3], base[1][4], base[1][5]}, 
     { base[2][0], base[2][1], base[2][2],   base[2][3], base[2][4], base[2][5]}, 
