@@ -1,5 +1,4 @@
 #include QMK_KEYBOARD_H
-#include "config.h"
 #include "mousekey.h"
 #include "action_layer.h"
 #ifdef AUDIO_ENABLE

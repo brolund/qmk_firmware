@@ -1,6 +1,5 @@
 #include QMK_KEYBOARD_H
 #include "version.h"
-#include "config.h"
 #include "eeconfig.h"
 #include "keymap_extras/keymap_swedish.h"
 #include "i3.h"
