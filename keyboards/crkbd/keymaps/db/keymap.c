@@ -66,6 +66,18 @@ const uint16_t func[4][12] = {
   [2]=FUNC_3,
   [3]=THUMB_ROW
 };
+const uint16_t i3ws[4][12] = {
+  [0]=I3WS_1,
+  [1]=I3WS_2,
+  [2]=I3WS_3,
+  [3]=THUMB_ROW
+};
+const uint16_t i3mv[4][12] = {
+  [0]=I3WS_1,
+  [1]=I3WS_2,
+  [2]=TRANS,
+  [3]=THUMB_ROW
+};
 
 
 enum custom_keycodes {
@@ -95,52 +107,105 @@ enum macro_keycodes {
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_BASE] = {
-    { base[0][0], base[0][1], base[0][2],   base[0][3], base[0][4], base[0][5]}, 
-    { base[1][0], base[1][1], base[1][2],   base[1][3], base[1][4], base[1][5]}, 
-    { base[2][0], base[2][1], base[2][2],   base[2][3], base[2][4], base[2][5]}, 
-    { KC_NO,      KC_NO,      KC_NO,        base[3][3], base[3][4], base[3][5]}, 
+    { base[0][0],  base[0][1],  base[0][2], base[0][3], base[0][4], base[0][5]}, 
+    { base[1][0],  base[1][1],  base[1][2], base[1][3], base[1][4], base[1][5]}, 
+    { base[2][0],  base[2][1],  base[2][2], base[2][3], base[2][4], base[2][5]}, 
+    { KC_NO,       KC_NO,       KC_NO,      base[3][3], base[3][4], base[3][5]}, 
     { base[0][11], base[0][10], base[0][9], base[0][8], base[0][7], base[0][6]}, 
     { base[1][11], base[1][10], base[1][9], base[1][8], base[1][7], base[1][6]}, 
     { base[2][11], base[2][10], base[2][9], base[2][8], base[2][7], base[2][6]}, 
-    { KC_NO,      KC_NO,      KC_NO,        base[3][8], base[3][7], base[3][6]}, 
-
+    { KC_NO,       KC_NO,       KC_NO,      base[3][8], base[3][7], base[3][6]}, 
   },
-
-  [_LOWER] = LAYOUT( \
-  //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-       KC_ESC,    KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                         KC_6,    KC_7,    KC_8,    KC_9,    KC_0, KC_BSPC,\
-  //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      KC_LCTL, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      KC_LEFT, KC_DOWN,   KC_UP,KC_RIGHT, XXXXXXX, XXXXXXX,\
-  //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      KC_LSFT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,\
-  //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          KC_LGUI,   LOWER,  KC_SPC,     KC_ENT,   RAISE, KC_RALT \
-                                      //`--------------------------'  `--------------------------'
-    ),
-
-  [_RAISE] = LAYOUT( \
-  //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-       KC_ESC, KC_EXLM,   KC_AT, KC_HASH,  KC_DLR, KC_PERC,                      KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_BSPC,\
-  //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      KC_LCTL, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      KC_MINS,  KC_EQL, KC_LCBR, KC_RCBR, KC_PIPE,  KC_GRV,\
-  //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      KC_LSFT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      KC_UNDS, KC_PLUS, KC_LBRC, KC_RBRC, KC_BSLS, KC_TILD,\
-  //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          KC_LGUI,   LOWER,  KC_SPC,     KC_ENT,   RAISE, KC_RALT \
-                                      //`--------------------------'  `--------------------------'
-  ),
-
-  [_ADJUST] = LAYOUT( \
-  //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-        RESET,  RGBRST, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,\
-  //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      RGB_TOG, RGB_HUI, RGB_SAI, RGB_VAI, XXXXXXX, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,\
-  //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      RGB_MOD, RGB_HUD, RGB_SAD, RGB_VAD, XXXXXXX, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,\
-  //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          KC_LGUI,   LOWER,  KC_SPC,     KC_ENT,   RAISE, KC_RALT \
-                                      //`--------------------------'  `--------------------------'
-  )
+  [_MOVE] = {
+    { move[0][0],  move[0][1],  move[0][2], move[0][3], move[0][4], move[0][5]}, 
+    { move[1][0],  move[1][1],  move[1][2], move[1][3], move[1][4], move[1][5]}, 
+    { move[2][0],  move[2][1],  move[2][2], move[2][3], move[2][4], move[2][5]}, 
+    { KC_NO,       KC_NO,       KC_NO,      move[3][3], move[3][4], move[3][5]}, 
+    { move[0][11], move[0][10], move[0][9], move[0][8], move[0][7], move[0][6]}, 
+    { move[1][11], move[1][10], move[1][9], move[1][8], move[1][7], move[1][6]}, 
+    { move[2][11], move[2][10], move[2][9], move[2][8], move[2][7], move[2][6]}, 
+    { KC_NO,       KC_NO,       KC_NO,      move[3][8], move[3][7], move[3][6]}, 
+  },
+  [_NUMPAD] = {
+    { num[0][0],  num[0][1],  num[0][2], num[0][3], num[0][4], num[0][5]}, 
+    { num[1][0],  num[1][1],  num[1][2], num[1][3], num[1][4], num[1][5]}, 
+    { num[2][0],  num[2][1],  num[2][2], num[2][3], num[2][4], num[2][5]}, 
+    { KC_NO,      KC_NO,      KC_NO,     num[3][3], num[3][4], num[3][5]}, 
+    { num[0][11], num[0][10], num[0][9], num[0][8], num[0][7], num[0][6]}, 
+    { num[1][11], num[1][10], num[1][9], num[1][8], num[1][7], num[1][6]}, 
+    { num[2][11], num[2][10], num[2][9], num[2][8], num[2][7], num[2][6]}, 
+    { KC_NO,      KC_NO,      KC_NO,     num[3][8], num[3][7], num[3][6]}, 
+  },
+  [_PARENS] = {
+    { par[0][0],  par[0][1],  par[0][2], par[0][3], par[0][4], par[0][5]}, 
+    { par[1][0],  par[1][1],  par[1][2], par[1][3], par[1][4], par[1][5]}, 
+    { par[2][0],  par[2][1],  par[2][2], par[2][3], par[2][4], par[2][5]}, 
+    { KC_NO,      KC_NO,      KC_NO,     par[3][3], par[3][4], par[3][5]}, 
+    { par[0][11], par[0][10], par[0][9], par[0][8], par[0][7], par[0][6]}, 
+    { par[1][11], par[1][10], par[1][9], par[1][8], par[1][7], par[1][6]}, 
+    { par[2][11], par[2][10], par[2][9], par[2][8], par[2][7], par[2][6]}, 
+    { KC_NO,      KC_NO,      KC_NO,     par[3][8], par[3][7], par[3][6]}, 
+  },
+  [_SIGNS] = {
+    { sign[0][0],  sign[0][1],  sign[0][2], sign[0][3], sign[0][4], sign[0][5]}, 
+    { sign[1][0],  sign[1][1],  sign[1][2], sign[1][3], sign[1][4], sign[1][5]}, 
+    { sign[2][0],  sign[2][1],  sign[2][2], sign[2][3], sign[2][4], sign[2][5]}, 
+    { KC_NO,       KC_NO,       KC_NO,      sign[3][3], sign[3][4], sign[3][5]}, 
+    { sign[0][11], sign[0][10], sign[0][9], sign[0][8], sign[0][7], sign[0][6]}, 
+    { sign[1][11], sign[1][10], sign[1][9], sign[1][8], sign[1][7], sign[1][6]}, 
+    { sign[2][11], sign[2][10], sign[2][9], sign[2][8], sign[2][7], sign[2][6]}, 
+    { KC_NO,       KC_NO,       KC_NO,      sign[3][8], sign[3][7], sign[3][6]}, 
+  },
+  [_MOUSE] = {
+    { mouse[0][0],  mouse[0][1],  mouse[0][2], mouse[0][3], mouse[0][4], mouse[0][5]}, 
+    { mouse[1][0],  mouse[1][1],  mouse[1][2], mouse[1][3], mouse[1][4], mouse[1][5]}, 
+    { mouse[2][0],  mouse[2][1],  mouse[2][2], mouse[2][3], mouse[2][4], mouse[2][5]}, 
+    { KC_NO,        KC_NO,        KC_NO,       mouse[3][3], mouse[3][4], mouse[3][5]}, 
+    { mouse[0][11], mouse[0][10], mouse[0][9], mouse[0][8], mouse[0][7], mouse[0][6]}, 
+    { mouse[1][11], mouse[1][10], mouse[1][9], mouse[1][8], mouse[1][7], mouse[1][6]}, 
+    { mouse[2][11], mouse[2][10], mouse[2][9], mouse[2][8], mouse[2][7], mouse[2][6]}, 
+    { KC_NO,        KC_NO,        KC_NO,       mouse[3][8], mouse[3][7], mouse[3][6]}, 
+  },
+  [_CONTROLS] = {
+    { cont[0][0],  cont[0][1],  cont[0][2], cont[0][3], cont[0][4], cont[0][5]}, 
+    { cont[1][0],  cont[1][1],  cont[1][2], cont[1][3], cont[1][4], cont[1][5]}, 
+    { cont[2][0],  cont[2][1],  cont[2][2], cont[2][3], cont[2][4], cont[2][5]}, 
+    { KC_NO,       KC_NO,       KC_NO,      cont[3][3], cont[3][4], cont[3][5]}, 
+    { cont[0][11], cont[0][10], cont[0][9], cont[0][8], cont[0][7], cont[0][6]}, 
+    { cont[1][11], cont[1][10], cont[1][9], cont[1][8], cont[1][7], cont[1][6]}, 
+    { cont[2][11], cont[2][10], cont[2][9], cont[2][8], cont[2][7], cont[2][6]}, 
+    { KC_NO,       KC_NO,       KC_NO,      cont[3][8], cont[3][7], cont[3][6]}, 
+  },
+  [_FUNC] = {
+    { func[0][0],  func[0][1],  func[0][2], func[0][3], func[0][4], func[0][5]}, 
+    { func[1][0],  func[1][1],  func[1][2], func[1][3], func[1][4], func[1][5]}, 
+    { func[2][0],  func[2][1],  func[2][2], func[2][3], func[2][4], func[2][5]}, 
+    { KC_NO,       KC_NO,       KC_NO,      func[3][3], func[3][4], func[3][5]}, 
+    { func[0][11], func[0][10], func[0][9], func[0][8], func[0][7], func[0][6]}, 
+    { func[1][11], func[1][10], func[1][9], func[1][8], func[1][7], func[1][6]}, 
+    { func[2][11], func[2][10], func[2][9], func[2][8], func[2][7], func[2][6]}, 
+    { KC_NO,       KC_NO,       KC_NO,      func[3][8], func[3][7], func[3][6]}, 
+  },
+  [_I3WS] = {
+    { i3ws[0][0],  i3ws[0][1],  i3ws[0][2], i3ws[0][3], i3ws[0][4], i3ws[0][5]}, 
+    { i3ws[1][0],  i3ws[1][1],  i3ws[1][2], i3ws[1][3], i3ws[1][4], i3ws[1][5]}, 
+    { i3ws[2][0],  i3ws[2][1],  i3ws[2][2], i3ws[2][3], i3ws[2][4], i3ws[2][5]}, 
+    { KC_NO,       KC_NO,       KC_NO,      i3ws[3][3], i3ws[3][4], i3ws[3][5]}, 
+    { i3ws[0][11], i3ws[0][10], i3ws[0][9], i3ws[0][8], i3ws[0][7], i3ws[0][6]}, 
+    { i3ws[1][11], i3ws[1][10], i3ws[1][9], i3ws[1][8], i3ws[1][7], i3ws[1][6]}, 
+    { i3ws[2][11], i3ws[2][10], i3ws[2][9], i3ws[2][8], i3ws[2][7], i3ws[2][6]}, 
+    { KC_NO,       KC_NO,       KC_NO,      i3ws[3][8], i3ws[3][7], i3ws[3][6]}, 
+  },
+  [_I3MV] = {
+    { i3mv[0][0],  i3mv[0][1],  i3mv[0][2], i3mv[0][3], i3mv[0][4], i3mv[0][5]}, 
+    { i3mv[1][0],  i3mv[1][1],  i3mv[1][2], i3mv[1][3], i3mv[1][4], i3mv[1][5]}, 
+    { i3mv[2][0],  i3mv[2][1],  i3mv[2][2], i3mv[2][3], i3mv[2][4], i3mv[2][5]}, 
+    { KC_NO,       KC_NO,       KC_NO,      i3mv[3][3], i3mv[3][4], i3mv[3][5]}, 
+    { i3mv[0][11], i3mv[0][10], i3mv[0][9], i3mv[0][8], i3mv[0][7], i3mv[0][6]}, 
+    { i3mv[1][11], i3mv[1][10], i3mv[1][9], i3mv[1][8], i3mv[1][7], i3mv[1][6]}, 
+    { i3mv[2][11], i3mv[2][10], i3mv[2][9], i3mv[2][8], i3mv[2][7], i3mv[2][6]}, 
+    { KC_NO,       KC_NO,       KC_NO,      i3mv[3][8], i3mv[3][7], i3mv[3][6]}, 
+  }
 };
 
 int RGB_current_mode;
